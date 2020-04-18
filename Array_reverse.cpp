@@ -1,4 +1,4 @@
-﻿/* Array row and column reverse - program, który wczytuje z wejścia ciąg liczb i wypisuje go w odwróconej kolejności.
+﻿/* Array reverse by row - program, który wczytuje z wejścia ciąg liczb i wypisuje go w odwróconej kolejności.
 Wejście - wprowadzona zostanie pewna nieokreślona, ale niewielka ilość liczb całkowitych rozdzielonych spacjami. Zestawy zostaną rozdzielone znakiem nowej linii.
 
 Input:      10 15 20 25 30
@@ -20,6 +20,10 @@ using namespace std;
 
 int main()
 {
+    cout << "########## Array reverse ##########" << endl;
+
+    cout << "Enter first row of numbers to reverse. Separate the numbers with space." << endl;
+
     vector<vector<int>> ArrayRowColumn;
 
     string input;
@@ -52,6 +56,8 @@ int main()
 
         ArrayRowColumn.push_back(ArrayColumn);
 
+        cout << "Enter next row of numbers to reverse or push enter to continue." << endl;
+
         getline(cin, input);
 
     } while (input.length() > 0);
@@ -59,6 +65,8 @@ int main()
     for (size_t row = 0; row < ArrayRowColumn.size(); row++)
     {
         reverse(ArrayRowColumn[row].begin(), ArrayRowColumn[row].end());
+
+        cout << row + 1 << ". row: ";
 
         for (auto column : ArrayRowColumn[row])
         {
